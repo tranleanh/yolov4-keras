@@ -1,8 +1,9 @@
-## YOLOV4：You Only Look Once目标检测模型在Keras当中的实现
+## YOLOv4 Implementation in Tensorflow-Keras
 ---
 
-**2021年10月12日更新：**   
-**进行了大幅度的更新，对代码的模块进行修改，加了大量注释。**   
+This repo has been developed based on [this project](https://github.com/bubbliiiing/yolov4-keras). 
+
+I have made an English version for those who got struggle with Chinese (including me).
 
 ## 目录
 1. [性能情况 Performance](#性能情况)
