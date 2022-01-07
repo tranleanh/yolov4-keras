@@ -5,18 +5,18 @@ This repo has been developed based on [this project](https://github.com/bubbliii
 
 I have made an English version for those who got struggle with Chinese (including me).
 
-## 目录
-1. [性能情况 Performance](#性能情况)
-2. [实现的内容 Achievement](#实现的内容)
-3. [所需环境 Environment](#所需环境)
-4. [注意事项 Attention](#注意事项)
-5. [小技巧的设置 TricksSet](#小技巧的设置)
-6. [文件下载 Download](#文件下载)
-7. [训练步骤 How2train](#训练步骤)
-8. [预测步骤 How2predict](#预测步骤)
-8. [训练步骤 How2train](#训练步骤)
-9. [评估步骤 How2eval](#评估步骤)
-10. [参考资料 Reference](#Reference)
+## Contents
+1. [Performance](#性能情况)
+2. [Achievement](#实现的内容)
+3. [Environment](#所需环境)
+4. [Attention](#注意事项)
+5. [TricksSet](#小技巧的设置)
+6. [Download](#文件下载)
+7. [How2train](#训练步骤)
+8. [How2predict](#预测步骤)
+8. [How2train](#训练步骤)
+9. [How2eval](#评估步骤)
+10. [Reference](#Reference)
 
 ## 性能情况
 | 训练数据集 | 权值文件名称 | 测试数据集 | 输入图片大小 | mAP 0.5:0.95 | mAP 0.5 |
