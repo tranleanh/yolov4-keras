@@ -6,7 +6,7 @@ This repo has been developed based on [this project](https://github.com/bubbliii
 I have made an English version for those who got struggle with Chinese (including me).
 
 ## 0. Contents
-1. [Performance](#Performance)
+1. [Performance](#1. Performance)
 2. [Achievement](#Achievement)
 3. [Environment](#Environment)
 4. [Note](#Note)
