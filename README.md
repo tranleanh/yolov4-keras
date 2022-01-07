@@ -103,8 +103,8 @@ classes_path指向检测类别所对应的txt。**
 完成修改后就可以运行predict.py进行检测了。运行后输入图片路径即可检测。  
 
 ## How2Predict
-### a、使用预训练权重
-1. 下载完库后解压，在百度网盘下载yolo_weights.pth，放入model_data，运行predict.py，输入  
+### a. Use pre-trained weights
+1. After downloading the repo, unzip it, download yolo_weights.pth from Baidu and put it in model_data, run predict.py:
 ```python
 img/street.jpg
 ```
