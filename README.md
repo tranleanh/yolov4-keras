@@ -5,47 +5,46 @@ This repo has been developed based on [this project](https://github.com/bubbliii
 
 I have made an English version for those who got struggle with Chinese (including me).
 
-## Contents
+## 0. Contents
 1. [Performance](#Performance)
 2. [Achievement](#Achievement)
 3. [Environment](#Environment)
-4. [Attention](#Attention)
+4. [Note](#Note)
 5. [TrainingSettings](#TrainingSettings)
 6. [Download](#Download)
 7. [How2Train](#How2Train)
 8. [How2Predict](#How2Predict)
-8. [How2Train](#How2Train)
 9. [How2Eval](#How2Eval)
 10. [Reference](#Reference)
 
-## Performance
+## 1. Performance
 | Trainset | Weight File | Testset | Input Size | mAP 0.5:0.95 | mAP 0.5 |
 | :-----: | :-----: | :------: | :------: | :------: | :-----: |
 | VOC07+12+COCO | [yolo4_voc_weights.h5](https://github.com/bubbliiiing/yolov4-keras/releases/download/v1.0/yolo4_voc_weights.h5) | VOC-Test07 | 416x416 | - | 88.9
 | COCO-Train2017 | [yolo4_weight.h5](https://github.com/bubbliiiing/yolov4-keras/releases/download/v1.0/yolo4_weight.h5) | COCO-Val2017 | 416x416 | 46.4 | 70.5
 
-## Achievement
+## 2. Achievement
 - [x] Backbone：DarkNet53 => CSPDarkNet53
 - [x] Neck：SPP,PAN
 - [x] Training Setting：Mosaic Data Augmentation, Label Smoothing、CIOU、Cosine Annealing Learning Rate Scheduler
 - [x] Activation：Mish
 
-## Environment
+## 3. Environment
 tensorflow-gpu==1.13.1  
 keras==2.1.5  
 
-## Note
+## 4. Note
 The weight file `yolo4_weights.h5` was trained with the anchors of input size 608x608.    
 Be careful not to use Chinese labels, and no spaces in the folder!    
 Before training, you need to create a new txt document under `model_data`, enter the classes to be classified in the document, and point `classes_path` to this file in `train.py`.
 
-## TrainingSettings
+## 5. TrainingSettings
 In `train.py`：   
 1. mosaic: whether or not to use mosaic data augmentation
 2. cosine_scheduler: whether or not to use cosine annealing learning rate scheduler   
 3. label_smoothing: whether or not to use label smoothing 
 
-## Download
+## 6. Download
 The weight file `yolo4_weights.h5` can be downloaded from [Baidu](https://pan.baidu.com/s/1R4LlPqVBdusVa9Mx_BXSTg). (Code: k8v5)
 
 yolo4_weights.h5: weights trained on COCO dataset 
@@ -54,7 +53,7 @@ yolo4_voc_weights.h5: weights trained on VOC dataset
 
 Link to download VOC dataset: https://pan.baidu.com/s/1YuBbBKxm2FGgTU5OfaeC5A (Code: uack)   
 
-## How2Train
+## 7. How2Train
 ### a. Train on VOC07+12 dataset
 1. Data preparation    
 This project uses VOC data format for training. Before training, download the VOC07+12 data set, decompress it and place it in the root directory    
@@ -100,7 +99,7 @@ Two files are needed to predict the training results, namely `yolo.py` and `pred
 `classes_path` points to the txt corresponding to the detection category    
 After the modification is completed, you can run `predict.py` for detection. After running, enter the image path to detect.    
 
-## How2Predict
+## 8. How2Predict
 ### a. Use pre-trained weights
 1. After downloading the repo, unzip it, download `yolo_weights.pth` from Baidu and put it in model_data, run `predict.py`:
 ```python
@@ -154,7 +153,7 @@ img/street.jpg
 ```
 4. Setting in `predict.py` can perform fps test and video video detection.    
 
-## How2Eval 
+## 9. How2Eval 
 ### a. Evaluation on the VOC07+12 test set
 1. This article uses the VOC format for evaluation. VOC07+12 has divided the test set, there is no need to use `voc_annotation.py` to generate the txt in the ImageSets folder.
 2. Modify `model_path` and `classes_path` in `yolo.py`. `model_path` points to the trained weight file, in the logs folder. The `classes_path` points to the txt corresponding to the detection category.    
@@ -167,7 +166,7 @@ img/street.jpg
 4. Modify model_path and classes_path in yolo.py. model_path points to the trained weight file, in the logs folder. The classes_path points to the txt corresponding to the detection category.  
 5. Run get_map.py to get the evaluation result, which will be saved in the map_out folder
 
-## Reference
+## 10. Reference
 https://github.com/qqwweee/keras-yolo3  
 https://github.com/eriklindernoren/PyTorch-YOLOv3   
 https://github.com/BobLiu20/YOLOv3_PyTorch
