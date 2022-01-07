@@ -35,11 +35,9 @@ tensorflow-gpu==1.13.1
 keras==2.1.5  
 
 ## Note
-The weight file `yolo4_weights.h5` was trained with the anchors of input size 608x608.   
-
-注意不要使用中文标签，文件夹中不要有空格！
-
-在训练前需要务必在model_data下新建一个txt文档，文档中输入需要分的类，在train.py中将classes_path指向该文件。
+The weight file `yolo4_weights.h5` was trained with the anchors of input size 608x608.    
+Be careful not to use Chinese labels, and no spaces in the folder!    
+Before training, you need to create a new txt document under `model_data`, enter the classes to be classified in the document, and point `classes_path` to this file in `train.py`.
 
 ## TrainingSettings
 In `train.py`：   
