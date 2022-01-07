@@ -6,47 +6,47 @@ This repo has been developed based on [this project](https://github.com/bubbliii
 I have made an English version for those who got struggle with Chinese (including me).
 
 ## Contents
-1. [Performance](#性能情况)
-2. [Achievement](#实现的内容)
-3. [Environment](#所需环境)
-4. [Attention](#注意事项)
-5. [TricksSet](#小技巧的设置)
-6. [Download](#文件下载)
-7. [How2train](#训练步骤)
-8. [How2predict](#预测步骤)
-8. [How2train](#训练步骤)
-9. [How2eval](#评估步骤)
+1. [Performance](#Performance)
+2. [Achievement](#Achievement)
+3. [Environment](#Environment)
+4. [Attention](#Attention)
+5. [TricksSet](#TricksSet)
+6. [Download](#Download)
+7. [How2Train](#How2Train)
+8. [How2Predict](#How2Predict)
+8. [How2Train](#How2Train)
+9. [How2Eval](#How2Eval)
 10. [Reference](#Reference)
 
-## 性能情况
+## Performance
 | 训练数据集 | 权值文件名称 | 测试数据集 | 输入图片大小 | mAP 0.5:0.95 | mAP 0.5 |
 | :-----: | :-----: | :------: | :------: | :------: | :-----: |
 | VOC07+12+COCO | [yolo4_voc_weights.h5](https://github.com/bubbliiiing/yolov4-keras/releases/download/v1.0/yolo4_voc_weights.h5) | VOC-Test07 | 416x416 | - | 88.9
 | COCO-Train2017 | [yolo4_weight.h5](https://github.com/bubbliiiing/yolov4-keras/releases/download/v1.0/yolo4_weight.h5) | COCO-Val2017 | 416x416 | 46.4 | 70.5
 
-## 实现的内容
+## Achievement
 - [x] 主干特征提取网络：DarkNet53 => CSPDarkNet53
 - [x] 特征金字塔：SPP，PAN
 - [x] 训练用到的小技巧：Mosaic数据增强、Label Smoothing平滑、CIOU、学习率余弦退火衰减
 - [x] 激活函数：使用Mish激活函数
 - [ ] ……balabla
 
-## 所需环境
+## Environment
 tensorflow-gpu==1.13.1  
 keras==2.1.5  
 
-## 注意事项
+## Attention
 代码中的yolo4_weights.h5是基于608x608的图片训练的，但是由于显存原因。我将代码中的图片大小修改成了416x416。有需要的可以修改回来。 代码中的默认anchors是基于608x608的图片的。   
 **注意不要使用中文标签，文件夹中不要有空格！**   
 **在训练前需要务必在model_data下新建一个txt文档，文档中输入需要分的类，在train.py中将classes_path指向该文件**。  
 
-## 小技巧的设置
+## TricksSet
 在train.py文件下：   
 1、mosaic参数可用于控制是否实现Mosaic数据增强。   
 2、Cosine_scheduler可用于控制是否使用学习率余弦退火衰减。   
 3、label_smoothing可用于控制是否Label Smoothing平滑。
 
-## 文件下载
+## Download
 训练所需的yolo4_weights.h5可在百度网盘中下载。  
 链接: https://pan.baidu.com/s/1R4LlPqVBdusVa9Mx_BXSTg 提取码: k8v5   
 yolo4_weights.h5是coco数据集的权重。  
@@ -56,7 +56,7 @@ VOC数据集下载地址如下，里面已经包括了训练集、测试集、�
 链接: https://pan.baidu.com/s/1YuBbBKxm2FGgTU5OfaeC5A    
 提取码: uack   
 
-## 训练步骤
+## How2Train
 ### a、训练VOC07+12数据集
 1. 数据集的准备   
 **本文使用VOC格式进行训练，训练前需要下载好VOC07+12的数据集，解压后放在根目录**  
@@ -102,7 +102,7 @@ dog
 classes_path指向检测类别所对应的txt。**  
 完成修改后就可以运行predict.py进行检测了。运行后输入图片路径即可检测。  
 
-## 预测步骤
+## How2Predict
 ### a、使用预训练权重
 1. 下载完库后解压，在百度网盘下载yolo_weights.pth，放入model_data，运行predict.py，输入  
 ```python
@@ -156,7 +156,7 @@ img/street.jpg
 ```
 4. 在predict.py里面进行设置可以进行fps测试和video视频检测。  
 
-## 评估步骤 
+## How2Eval 
 ### a、评估VOC07+12的测试集
 1. 本文使用VOC格式进行评估。VOC07+12已经划分好了测试集，无需利用voc_annotation.py生成ImageSets文件夹下的txt。
 2. 在yolo.py里面修改model_path以及classes_path。**model_path指向训练好的权值文件，在logs文件夹里。classes_path指向检测类别所对应的txt。**  
