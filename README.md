@@ -10,7 +10,7 @@ I have made an English version for those who got struggle with Chinese (includin
 2. [Achievement](#Achievement)
 3. [Environment](#Environment)
 4. [Attention](#Attention)
-5. [TricksSet](#TricksSet)
+5. [TrainingSettings](#TrainingSettings)
 6. [Download](#Download)
 7. [How2Train](#How2Train)
 8. [How2Predict](#How2Predict)
@@ -19,32 +19,32 @@ I have made an English version for those who got struggle with Chinese (includin
 10. [Reference](#Reference)
 
 ## Performance
-| 训练数据集 | 权值文件名称 | 测试数据集 | 输入图片大小 | mAP 0.5:0.95 | mAP 0.5 |
+| Trainset | Weight File | Testset | Input Size | mAP 0.5:0.95 | mAP 0.5 |
 | :-----: | :-----: | :------: | :------: | :------: | :-----: |
 | VOC07+12+COCO | [yolo4_voc_weights.h5](https://github.com/bubbliiiing/yolov4-keras/releases/download/v1.0/yolo4_voc_weights.h5) | VOC-Test07 | 416x416 | - | 88.9
 | COCO-Train2017 | [yolo4_weight.h5](https://github.com/bubbliiiing/yolov4-keras/releases/download/v1.0/yolo4_weight.h5) | COCO-Val2017 | 416x416 | 46.4 | 70.5
 
 ## Achievement
-- [x] 主干特征提取网络：DarkNet53 => CSPDarkNet53
-- [x] 特征金字塔：SPP，PAN
-- [x] 训练用到的小技巧：Mosaic数据增强、Label Smoothing平滑、CIOU、学习率余弦退火衰减
-- [x] 激活函数：使用Mish激活函数
-- [ ] ……balabla
+- [x] Backbone：DarkNet53 => CSPDarkNet53
+- [x] Neck：SPP,PAN
+- [x] Training Setting：Mosaic Data Augmentation, Label Smoothing、CIOU、Cosine Annealing Learning Rate Scheduler
+- [x] Activation：Mish
 
 ## Environment
 tensorflow-gpu==1.13.1  
 keras==2.1.5  
 
-## Attention
-代码中的yolo4_weights.h5是基于608x608的图片训练的，但是由于显存原因。我将代码中的图片大小修改成了416x416。有需要的可以修改回来。 代码中的默认anchors是基于608x608的图片的。   
-**注意不要使用中文标签，文件夹中不要有空格！**   
-**在训练前需要务必在model_data下新建一个txt文档，文档中输入需要分的类，在train.py中将classes_path指向该文件**。  
+## Note
+The weight file `yolo4_weights.h5` was trained with the anchors of input size 608x608.   
+Not to use Chinese labels, and no spaces in the folder!
+注意不要使用中文标签，文件夹中不要有空格！
+在训练前需要务必在model_data下新建一个txt文档，文档中输入需要分的类，在train.py中将classes_path指向该文件。
 
-## TricksSet
-在train.py文件下：   
-1、mosaic参数可用于控制是否实现Mosaic数据增强。   
-2、Cosine_scheduler可用于控制是否使用学习率余弦退火衰减。   
-3、label_smoothing可用于控制是否Label Smoothing平滑。
+## TrainingSettings
+In `train.py`：   
+1. mosaic: whether or not to use mosaic data augmentation
+2. cosine_scheduler: whether or not to use cosine annealing learning rate scheduler   
+3. label_smoothing: whether or not to use label smoothing 
 
 ## Download
 训练所需的yolo4_weights.h5可在百度网盘中下载。  
